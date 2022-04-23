@@ -4,13 +4,21 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        System.out.println("\u001B[34m What is URL of the site?");
-        Scanner scanner = new Scanner(System.in);
-        String input = scanner.next();
-        if(netIsAvailable(input)){
-            System.out.println("\u001B[32m This site is reachable!");
-        }else{
-            System.out.println("\u001B[31m This site is unreachable or doesn't exist.");
+        Boolean done = false;
+        while(done == false){
+            System.out.println("\u001B[34m What is URL of the site?");
+            Scanner scanner = new Scanner(System.in);
+            String input = scanner.next();
+            if(netIsAvailable(input)){
+                System.out.println("\u001B[32m This site is reachable!");
+            }else{
+                System.out.println("\u001B[31m This site is unreachable or doesn't exist.");
+            }
+            System.out.println("\u001B[34mDo you want to search for new site? (Yes/No)");
+            String yesno = scanner.next();
+            if(yesno.equals("No")){
+                done=true;
+            }
         }
     }
     private static boolean netIsAvailable(String string) {
