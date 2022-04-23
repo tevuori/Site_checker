@@ -9,7 +9,7 @@ public class Main {
             System.out.println("\u001B[34m What is URL of the site?");
             Scanner scanner = new Scanner(System.in);
             String input = scanner.next();
-            if(netIsAvailable(input)){
+            if(netIsAvailable(formatURL(input))){
                 System.out.println("\u001B[32m This site is reachable!");
             }else{
                 System.out.println("\u001B[31m This site is unreachable or doesn't exist.");
@@ -33,5 +33,12 @@ public class Main {
         } catch (IOException e) {
             return false;
         }
+    }
+    public static String formatURL(String originalURL){
+        String newURL = originalURL;
+        if (!originalURL.contains("http://") || !originalURL.contains("https://")){
+            newURL = "http://" + originalURL;
+        }
+        return newURL;
     }
 }
