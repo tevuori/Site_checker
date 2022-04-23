@@ -4,7 +4,14 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-
+        System.out.println("\u001B[34m What is URL of the site?");
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.next();
+        if(netIsAvailable(input)){
+            System.out.println("\u001B[32m This site is reachable!");
+        }else{
+            System.out.println("\u001B[31m This site is unreachable or doesn't exist.");
+        }
     }
     private static boolean netIsAvailable(String string) {
         try {
