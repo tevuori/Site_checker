@@ -6,13 +6,13 @@ public class Main {
     public static void main(String[] args) throws IOException {
         Boolean done = false;
         while(done == false){
-            System.out.println("\u001B[34m What is URL of the site?");
+            System.out.println("\u001B[34mWhat is URL of the site?");
             Scanner scanner = new Scanner(System.in);
             String input = scanner.next();
             if(netIsAvailable(formatURL(input))){
-                System.out.println("\u001B[32m This site is reachable!");
+                System.out.println("\u001B[32mThis site is reachable!");
             }else{
-                System.out.println("\u001B[31m This site is unreachable or doesn't exist.");
+                System.out.println("\u001B[31mThis site is unreachable or doesn't exist.");
             }
             System.out.println("\u001B[34mDo you want to search for new site? (Yes/No)");
             String yesno = scanner.next();
